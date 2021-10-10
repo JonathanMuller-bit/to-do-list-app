@@ -1,25 +1,20 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Completed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class='table table-bordered table-hover'>
 
   <tbody>
     <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.description %></td>
-        <td><%= list.completed %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
+    <% if list.completed %>
+      <tr class='table-secondary'>
+        <td class='completed'><%= link_to list.description, edit_list_path(list) %></td>
         <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% else %>
+      <tr>
+        <td><%= link_to list.description, edit_list_path(list) %></td>
+        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

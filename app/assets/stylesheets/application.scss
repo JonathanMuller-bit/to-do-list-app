@@ -12,3 +12,37 @@
  *
  */
  @import "bootstrap";
+
+td, a{
+  color: #1f1f1f;
+  text-transform:none;
+  text-decoration: none;
+  padding: 2%;
+}
+ .container{
+   width: 80%;
+   margin: 0 auto;
+ }
+
+ .container-navbar{
+   width: 90%;
+   margin: 0 auto;
+ }
+
+ .completed{
+   text-decoration: line-through;
+
+ }
+
+ tr{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+ }
+
+ td:first-child{
+   grid-column: 1 / 4
+ }
+
+ td:last-child{
+   text-align: center;
+ }
