@@ -37,5 +37,5 @@
 
 <br>
 
-<%= link_to 'Delete Marked Items', home_trash_em_path %> |
-<%= link_to 'Delete all Items', home_trash_all_path %>
+<%= link_to 'Delete Marked Items', home_trash_em_path, data: { confirm: 'Are you sure?' }  %> |
+<%= link_to 'Delete all Items', home_trash_all_path, data: { confirm: 'Are you sure?' }  %>
