@@ -1,5 +1,3 @@
-
-
 <table class='table table-bordered table-hover'>
 
   <tbody>
@@ -7,12 +5,30 @@
     <% if list.completed %>
       <tr class='table-secondary'>
         <td class='completed'><%= link_to list.description, edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <center>
+            <%= form_for(list) do |f| %>
+            <%=  f.text_field :description, type: 'hidden' %>
+            <%=  f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+            <%=  f.submit "Uncross", class: 'btn btn-outline-secondary btn-sm'%>
+            <% end %>
+          </center>
+        </td>
+        <td><%= link_to 'Destroy', list, class:'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% else %>
       <tr>
         <td><%= link_to list.description, edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <center>
+            <%= form_for(list) do |f| %>
+            <%=  f.text_field :description, type: 'hidden' %>
+            <%=  f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+            <%=  f.submit "Cross off", class: 'btn btn-outline-secondary btn-sm'%>
+            <% end %>
+          </center>
+        </td>
+        <td><%= link_to 'Destroy', list, class:'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     <% end %>

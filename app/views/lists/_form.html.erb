@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label"><%= form.label :description %></label>
+      <%= form.text_field :description, class:'form-control' %>
+    </div>
+    <div class="mb-3 form-check">
+      <input  class="form-check-input" id="exampleCheck1"><%= form.check_box :completed, class:'form-check-input' %>
+      <label class="form-check-label" for="exampleCheck1"><%= form.label :completed %></label>
+    </div>
+    <button type="submit" class="btn btn-primary"><%= form.submit nil, class:'btn btn-primary' %></button>
+  </form>
 
-  <div class="field">
-    <%= form.label :completed %>
-    <%= form.check_box :completed %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
